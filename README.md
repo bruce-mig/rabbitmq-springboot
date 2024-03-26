@@ -1,6 +1,6 @@
 # rabbitmq-springboot
 
-This project implements RabbtMQ using `Spring AMQP`.
+This project implements RabbitMQ using `Spring AMQP`.
 
 It is a CLI app that uses Spring Profiles to control its behavior. 
 
