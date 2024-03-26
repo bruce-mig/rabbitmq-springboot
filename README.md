@@ -1,4 +1,4 @@
-# rabbitmq-springboot-demo
+# rabbitmq-springboot
 
 This project implements RabbtMQ using `Spring AMQP`.
 
