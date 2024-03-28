@@ -37,7 +37,7 @@ For example:
 
 ```bash
 # consumer
-java -jar target/rabbitmq-springboot-demo-0.0.1-SNAPSHOT.jar --spring.profiles.active=work-queues,sender
+java -jar target/rabbitmq-springboot-0.0.1-SNAPSHOT.jar --spring.profiles.active=work-queues,sender
 ```
 will run the publisher part of tut2 (Work Queues).
 
