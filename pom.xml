@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.github.bruce.mig</groupId>
-	<artifactId>rabbitmq-springboot-demo</artifactId>
+	<artifactId>rabbitmq-springboot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rabbitmq-springboot-demo</name>
-	<description>Spring AMQP hello world  Implementations for RabbitMQ </description>
+	<name>rabbitmq-springboot</name>
+	<description>Spring AMQP Implementations for RabbitMQ </description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
