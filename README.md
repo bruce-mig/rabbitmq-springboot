@@ -15,28 +15,52 @@ a different host, port or credentials, connections settings would require adjust
 
 
 ###  Build the JAR file
-The project uses Maven. To build them run
+The project uses Maven. To build it run
 ```bash
 ./mvnw clean package
 ```
 
 ### Run Application
 
-The application uses Spring Profiles to control what tutorial it's running, and whether it's a sender or receiver.  
-To run the receiver, execute the following command:  
+The application uses Spring Profiles to control what tut it's running, and whether it's a sender or receiver.  
+Available profiles are:
+- {tut1|hello-world},{sender|receiver}
+- {tut2|work-queues},{sender|receiver}
+- {tut3|pub-sub|publish-subscribe},{sender|receiver}
+- {tut4|routing},{sender|receiver}
+- {tut5|topics},{sender|receiver}
+- {tut6|rpc},{client|server}
+
+After building with maven, run the app however you like to run boot apps.
+
+For example:
 
 ```bash
 # consumer
-java -jar target/rabbitmq-springboot-demo-0.0.1-SNAPSHOT.jar --spring.profiles.active=hello-world,receiver
+java -jar target/rabbitmq-springboot-demo-0.0.1-SNAPSHOT.jar --spring.profiles.active=work-queues,sender
 ```
+will run the publisher part of tut2 (Work Queues).
 
-Open another shell to run the sender:  
+For tut1-tut5, run the consumer (receiver) followed by the publisher (sender):
 
 ```bash
-# sender
-java -jar target/rabbitmq-springboot-demo-0.0.1-SNAPSHOT.jar --spring.profiles.active=hello-world,sender
+# shell 1
+java -jar target/rabbitmq-springboot-*.jar --spring.profiles.active=work-queues,receiver
+
+# shell 2
+java -jar target/rabbitmq-springboot-*.jar --spring.profiles.active=work-queues,sender
 ```
 
+For tut6, run the server followed by the client.
+
+## Configuration
+
+When running receivers/servers it's useful to set the duration the app runs to a longer time.  Do this by setting
+the `tutorial.client.duration` property.
+
+```bash
+java -jar rabbitmq-springboot.jar --spring.profiles.active=tut2,receiver,remote --tutorial.client.duration=60000
+```
 ### Listing queues
 
 You may wish to see what queues RabbitMQ has and how many messages are in them.  
@@ -54,7 +78,7 @@ your own on the command line when you run it.
 
 To use to a remote RabbitMQ installation set the following properties:
 
-```
+```yaml
 spring:
   rabbitmq:
     host: <rabbitmq-server>
