@@ -11,7 +11,7 @@ a different host, port or credentials, connections settings would require adjust
 
 ### To start Docker container.
 
-`docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management`
+`docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4.0.1-management-alpine`
 
 
 ###  Build the JAR file
